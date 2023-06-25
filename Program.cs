@@ -1,7 +1,11 @@
+using ef_core_101.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<EfCore101Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("asp-net-ef-core-101")));
 
 var app = builder.Build();
 
